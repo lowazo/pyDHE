@@ -21,9 +21,17 @@ For more information:
 http://blog.markloiseau.com/2013/01/diffie-hellman-tutorial-in-python/
 """
 
-from random import getrandbits
 from binascii import hexlify
 import hashlib
+
+# If a secure random number generator is unavailable, exit with an error.
+try:
+	import Crypto.Random.random
+	secure_random = Crypto.Random.random.getrandbits
+except ImportError:
+	import OpenSSL
+	secure_random = lambda x: long(hexlify(OpenSSL.rand.bytes(x>>3)), 16)
+
 
 class DiffieHellman(object):
 	"""
@@ -46,9 +54,9 @@ class DiffieHellman(object):
 	
 	def genPrivateKey(self, bits):
 		"""
-		Generate a random private key.
+		Generate a private key using a secure random number generator.
 		"""
-		return getrandbits(bits)
+		return secure_random(bits)
 
 	
 	def genPublicKey(self):
