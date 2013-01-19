@@ -1,7 +1,10 @@
 # pyDHE
-PyDHE is a reference implementation of the Diffie-Hellman key exchange protocol in Python. A background tutorial can be found at <http://blog.markloiseau.com/2013/01/diffie-hellman-tutorial-in-python/>.
+PyDHE is an implementation of the Diffie-Hellman key exchange protocol in Python. A background tutorial can be found at <http://blog.markloiseau.com/2013/01/diffie-hellman-tutorial-in-python/>.
 
-DiffieHellman.py contains a functional implementation of the protocol, and SimpleDHE.py includes a simple example of the protocol's steps.
+DiffieHellman.py contains a functional implementation of the protocol, and SimpleDHE.py includes a simplified example of the protocol's steps.
+
+## Disclaimer
+PyDHE is provided as a demonstration of the Diffie-Hellman key exchange protocol. Per the GPL, it is provided without any warranty or implication of fitness for a purpose.
 
 ## Example
 The following code performs a complete exchange, including key generation using SHA-256:
