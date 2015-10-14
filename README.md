@@ -24,10 +24,19 @@ if(a.getKey() == b.getKey()):
 	print "Shared keys match."
 	print "Key:", hexlify(a.key)
 
-``` 
+```
+
+## Specifying your own parameters
+To specify a different generator, prime group or private key size, specify them when calling DiffieHellman():
+
+```python
+ DiffieHellman(generator=2, group=17, keyLength=540)
+
+```
+The class initializer does some *basic* sanity checks on supplied values.
 
 ## Security
-The DiffieHellman class uses parameters recommended by [RFC 3562](http://www.rfc-editor.org/rfc/rfc3526.txt) for generation of a 256-bit key, including a 6144-bit MODP prime and an exponent that is at least 540 bits in length.
+The DiffieHellman class uses parameters recommended by [RFC 3562](http://www.rfc-editor.org/rfc/rfc3526.txt) for generation of a 256-bit key. Check the spec for other key sizes and options.
 
 ## License
 This program is free software: you can redistribute it and/or modify
